@@ -21,7 +21,7 @@ COPY ./scripts/* /usr/bin/
 
 RUN chmod +x /usr/bin/run_tests_with_wait
 
-ENTRYPOINT ["/bin/sh"]
+ENTRYPOINT ["/bin/bash"]
 
 
 #To test locally

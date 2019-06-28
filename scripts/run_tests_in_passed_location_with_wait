@@ -14,8 +14,16 @@ LOCATIONTOUSE=${2}
 
 echo "Passed locaiton is ${LOCATIONTOUSE}"
 
+if [ ! -f ${LOCATIONTOUSE} ]; then
+  echo "Error - passed location dosen't exist"
+  exit 1
+fi
+
+cd ${LOCATIONTOUSE}
+echo "Changed current location to $(pwd)"
+
 echo "Waiting for ${WAITDURATION} to allow other container to start..."
 sleep ${WAITDURATION}
 echo "Wait over"
-nosetests --rednose ${2}
+nosetests --rednose .
 exit $?

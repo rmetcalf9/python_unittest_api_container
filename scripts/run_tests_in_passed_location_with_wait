@@ -14,7 +14,7 @@ LOCATIONTOUSE=${2}
 
 echo "Passed locaiton is ${LOCATIONTOUSE}"
 
-if [ ! -f ${LOCATIONTOUSE} ]; then
+if [ ! -d ${LOCATIONTOUSE} ]; then
   echo "Error - passed location dosen't exist"
   exit 1
 fi

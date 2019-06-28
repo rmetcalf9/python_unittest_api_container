@@ -1,0 +1,21 @@
+#!/bin/sh
+
+echo "Starting ${0}"
+
+if [ $# -ne 2 ]; then
+  echo "Must get 2 params"
+  echo " - wait duration"
+  echo " - location to use"
+  exit 1
+fi
+
+WAITDURATION=${1}
+LOCATIONTOUSE=${2}
+
+echo "Passed locaiton is ${LOCATIONTOUSE}"
+
+echo "Waiting for ${WAITDURATION} to allow other container to start..."
+sleep ${WAITDURATION}
+echo "Wait over"
+nosetests --rednose ${2}
+exit $?

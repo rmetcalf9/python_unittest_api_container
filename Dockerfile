@@ -19,7 +19,9 @@ RUN apk add --no-cache bash python3 curl python3-dev build-base linux-headers pc
 
 COPY ./scripts/* /usr/bin/
 
-RUN chmod +x /usr/bin/run_tests_with_wait
+RUN chmod +x /usr/bin/run_tests_with_wait && \
+    chmod +x /usr/bin/run_tests_in_passed_location_with_wait
+
 
 ENTRYPOINT ["/bin/bash"]
 

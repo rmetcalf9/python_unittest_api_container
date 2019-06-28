@@ -1,0 +1,14 @@
+#!/bin/sh
+
+echo "Starting ${0}"
+
+WAITDURATION=5
+if [ $# -eq 1 ]; then
+  WAITDURATION=${1}
+fi
+
+echo "Waiting for ${WAITDURATION} to allow other container to start..."
+sleep ${WAITDURATION}
+echo "Wait over"
+nosetests --rednose /ext_volume
+exit $?
